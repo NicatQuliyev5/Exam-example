@@ -5,6 +5,8 @@ import { getAll } from "../../services";
 import { deleteOne } from "../../services";
 import { Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import { useFormik } from 'formik';
+
 
 function Add() {
   const [menus, setMenus] = useState([]);
@@ -13,6 +15,20 @@ function Add() {
       setMenus(res.data.response);
     });
   }, []);
+
+  const formik = useFormik({
+    initialValues: {
+      title: '',
+      price: '',
+      description: '',
+      imgSrc: '',
+    },
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        
+      }
+    },
+  });
   const columns = [
     {
       title: "Title",

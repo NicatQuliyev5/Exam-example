@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "./index.module.scss"
+import { BasketContext } from "../../context/BasketContext";
 function Header() {
   let location = useLocation();
+  const { basket } = useContext(BasketContext)
   return (
     <header>
       <div className="container">
@@ -17,24 +19,31 @@ function Header() {
                 ) : (
                   <Link to={"/"}>HOME</Link>
                 )}
+                <sup></sup>
               </li>
               <li>
                 <a href="#about">ABOUT</a>
+                <sup></sup>
               </li>
               <li>
                 <a href="#menu">MENU</a>
+                <sup></sup>
               </li>
               <li>
                 <a href="#news">NEWS</a>
+                <sup></sup>
               </li>
               <li>
                 <a href="#gallery">GALLERY</a>
+                <sup></sup>
               </li>
               <li>
                 <Link to={"/add"}>ADD</Link>
+                <sup></sup>
               </li>
               <li>
                 <Link to={"/basket"}>BASKET</Link>
+                <sup>{basket.length}</sup>
               </li>
             </ul>
           </nav>

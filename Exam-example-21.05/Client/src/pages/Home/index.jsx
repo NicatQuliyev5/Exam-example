@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./index.module.scss";
 import { getAll } from "../../services/index.js";
 import { useEffect, useState } from "react";
@@ -8,9 +8,11 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { BasketContext } from "../../context/BasketContext.jsx";
 
 function Home() {
   const [menus, setMenus] = useState([]);
+  const { basket, setBasket, setLocalBasket } = useContext(BasketContext)
   useEffect(() => {
     getAll().then((res) => {
       setMenus(res.data.response);
@@ -31,6 +33,7 @@ function Home() {
             </p>
           </div>
           <Swiper
+            key={menus._id}
             grabCursor={true}
             pagination={{
               clickable: true,
@@ -66,7 +69,20 @@ function Home() {
                         <p>{menu.description}</p>
                       </div>
                       <div className={styles.cardFooter}>
-                        <Button variant="contained" color="warning">
+                        <Button variant="contained" color="warning" onClick={() => {
+                          console.log("salam")
+                          const dublicated = basket.find((d) => d._id === menu._id)
+                          if (dublicated) {
+                            dublicated.count += 1
+                            setBasket([...basket])
+                            setLocalBasket([...basket])
+                          } else {
+                            const updated = { ...menu }
+                            updated.count = 1
+                            setBasket([...basket, updated])
+                            setLocalBasket([...basket, updated])
+                          }
+                        }}>
                           Order Now!
                         </Button>
                         <Button variant="contained">
