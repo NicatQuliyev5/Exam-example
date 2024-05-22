@@ -1,0 +1,64 @@
+header {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px;
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+
+            .logoRight {
+                color: #FE4C50;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            gap: 60px;
+
+            li {
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-size: 13px;
+                    font-weight: 500;
+                }
+            }
+
+            .basket {
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                background-color: #ECEFF6;
+                position: relative;
+
+                a svg {
+                    font-size: 16px;
+                }
+
+                .basketCount {
+                    position: absolute;
+                    top: -5px;
+                    right: -5px;
+                    background-color: #FE4C50;
+                    color: white;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

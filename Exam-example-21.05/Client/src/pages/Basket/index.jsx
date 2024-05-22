@@ -24,8 +24,6 @@ function Basket() {
     {
       title: "Price",
       dataIndex: "price",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
     },
     {
       title: "Count",
