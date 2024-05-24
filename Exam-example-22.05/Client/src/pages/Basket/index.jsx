@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import { Table } from 'antd';
 function Basket() {
     const { basket, setBasket, setLocalBasket } = useContext(BasketContext)
-    console.log(basket)
     const columns = [
         {
             title: "Title",
@@ -85,7 +84,6 @@ function Basket() {
                             color="error"
                             onClick={() => {
                                 const updated = basket.filter((d) => d._id !== record._id)
-                                console.log(updated)
                                 setBasket(updated)
                                 setLocalBasket(updated)
                             }}

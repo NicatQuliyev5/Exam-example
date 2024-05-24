@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom"
+import useLocalStorage from "./hooks/UseLocalStorage"
 import { ROUTES } from "./routes/ROUTES"
 import { createBrowserRouter } from "react-router-dom"
-import { useEffect, useState } from "react";
-import useLocalStorage from "./hooks/UseLocalStorage"
 import { BasketContext } from "./context/BasketContext";
 
 const routes = createBrowserRouter(ROUTES)
